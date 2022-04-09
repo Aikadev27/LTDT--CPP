@@ -1,11 +1,14 @@
+#ifndef _LIST_
+#define _LIST_
 #include "size.h"
+
 typedef int ElementType;
 
-struct List
+typedef struct 
 {
     ElementType data[MAX_ELEMENT];
     int size;
-};
+}List;
 void make_null_list(List *L)
 {
     L->size = 0;
@@ -26,3 +29,4 @@ ElementType element_at(List *L ,int i)
 {
     return L->data[i - 1];
 }
+#endif

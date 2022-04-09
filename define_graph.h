@@ -1,11 +1,13 @@
+#ifndef _GRAPH_
+#define _GRAPH_
 #include "size.h"
 #include"define_list.h"
 
-struct Graph
+typedef struct 
 {
     int n;
     int A[MAX_N][MAX_N];
-};
+}Graph;
 void init_graph(Graph *G, int n)
 {
     int i, j;
@@ -45,7 +47,9 @@ void copy_list(List *S1, List *S2)
     make_null_list(S1);
     for (i = 1; i <= S2->size; i++)
     {
-        x = element_at(&S2, i);
+        x = element_at(S2, i);
         push_back(S1, x);
     }
 }
+
+#endif  

@@ -1,9 +1,12 @@
+#ifndef _QUEUE_
+#define _QUEUE_
 #include "size.h"
-struct Queue
+
+ typedef struct 
 {
     int front, rear;
     int data[MAX_ELEMENT];
-};
+}Queue;
 void makenull_Queue(Queue *Q)
 {
     Q->front = 0;
@@ -27,13 +30,4 @@ int empty(Queue *Q)
 {
     return Q->front > Q->rear;
 }
-int empty(Queue *Q)
-{
-    return Q->front > Q->rear;
-}
-
-void enqueue(Queue *Q, int x)
-{
-    Q->rear++;
-    Q->data[Q->rear] = x;
-}
+#endif

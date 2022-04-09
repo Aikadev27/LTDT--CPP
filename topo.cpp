@@ -28,16 +28,16 @@ List topo_sort(Graph *pG)
     {
         if (d[u] == 0)
         {
-            enqueue(&Q, d[u]);
+            push(&Q,u);
         }
     }
-    List *pL;
-    make_null_list(pL);
+    List pL;
+    make_null_list(&pL);
     while (!empty(&Q))
     {
         int u = top(&Q);
         pop(&Q);
-        push_back(pL, u);
+        push_back(&pL, u);
         for (int v = 1; v <= pG->n; v++)
         {
             if (pG->A[u][v] != 0)
@@ -45,12 +45,12 @@ List topo_sort(Graph *pG)
                 d[v]--;
                 if (d[v] == 0)
                 {
-                    enqueue(&Q, v);
+                    push(&Q,v);
                 }
             }
         }
     }
-    return *pL;
+    return pL;
 }
 
 int main()
